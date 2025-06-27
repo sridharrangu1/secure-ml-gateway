@@ -1,0 +1,10 @@
+artifact_location: file:D:/Download-Office/RM-ZHR-408-F/secure-api-gateway/mlruns/622035822932971591/models/m-8ffc796ff85143b89fcb79ed1ed68888/artifacts
+creation_timestamp: 1751045285816
+experiment_id: '622035822932971591'
+last_updated_timestamp: 1751045289957
+model_id: m-8ffc796ff85143b89fcb79ed1ed68888
+model_type: null
+name: model
+source_run_id: 5f5ad11f8d5d4f578adaaa2535d66ef9
+status: 2
+status_message: null

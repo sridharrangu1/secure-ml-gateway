@@ -1,0 +1,22 @@
+artifact_path: file:D:/Download-Office/RM-ZHR-408-F/secure-api-gateway/mlruns/622035822932971591/models/m-8ffc796ff85143b89fcb79ed1ed68888/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.10
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.0
+mlflow_version: 3.1.1
+model_id: m-8ffc796ff85143b89fcb79ed1ed68888
+model_size_bytes: 18377715
+model_uuid: m-8ffc796ff85143b89fcb79ed1ed68888
+prompts: null
+run_id: 5f5ad11f8d5d4f578adaaa2535d66ef9
+utc_time_created: '2025-06-27 17:28:05.862763'

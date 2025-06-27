@@ -1,34 +1,52 @@
 # Secure ML API Gateway for CRM and Healthcare Systems
 
-This project implements a **secure, AI-powered, cloud-aligned API system** to modernize CRM and healthcare service platforms. It integrates **machine learning models**, **DevOps automation**, and **role-based access control (RBAC)** to simulate a real-world AI deployment using FastAPI, MLflow, and GitHub Actions.
+This project demonstrates a production-ready, secure, and modular API-driven ML architecture for appointment no-show prediction using real tools such as FastAPI, MLflow, and GitHub Actions. It is part of a broader system titled:
+
+**“AI-Powered Cloud Transformation for CRM and Healthcare Systems: Secure Data Integration, DevOps Automation, and Cloud-Native Business Modernization.”**
 
 ---
 
 ## Key Features
 
-| Feature | Description |
-|---------|-------------|
-| **ML Predictions** | No-show prediction, billing anomaly detection, CRM churn prediction, patient clustering |
-| **Secure API Gateway** | JWT-authenticated FastAPI microservices with role-based access (`admin`, `doctor`, `nurse`) |
-| **DevOps Simulation** | CI/CD pipeline using GitHub Actions to retrain models on commit |
-| **MLOps Tracking** | MLflow-based experiment tracking and model versioning |
-| **Cloud-Native Ready** | Modular architecture, Dockerfile included, .env-secured |
+### 1. Secure API Gateway
+- Built using **FastAPI**
+- JWT-based **token authentication** with role-based access control
+- Access logging for each request
+- Simulated microservice: `/predict_noshow`
+
+### 2. ML Model Integration
+- Random Forest model trained on real patient appointment data
+- Features: `Age`, `Scholarship`, `Hypertension`, `Diabetes`, `Alcoholism`, `SMS_received`
+- Model saved using `joblib` and loaded inside FastAPI route
+- Prediction output: `0 = will show`, `1 = no-show likely`
+
+### 3. DevOps Automation & CI/CD
+- **MLflow** tracking with:
+  - Accuracy logging
+  - Model versioning
+  - Registered artifacts
+- **GitHub Actions** workflow (`.github/workflows/ml-train.yml`) to auto-train model on every push
+- Dockerfile included for containerization
+- .env-based secret management
 
 ---
 
-## Machine Learning Modules
 
-1. **Appointment No-Show Prediction** (RandomForest, XGBoost)
-2. **Billing Anomaly Detection** (Isolation Forest, Autoencoder)
-3. **CRM Churn Prediction** (XGBoost)
-4. **Patient Clustering** (KMeans for personalization)
+## ⚙Setup Instructions
 
----
+```bash
+# Step 1: Install Python dependencies
+pip install -r requirements.txt
 
-## API Endpoints (via FastAPI)
+# Step 2: Train model and log to MLflow
+python train_model.py
 
-### `/predict_noshow` – POST
+# Step 3: Launch MLflow UI
+mlflow ui --port 5000
 
-Predicts whether a patient will miss their appointment based on clinical and communication features.
+# Step 4: Generate a token
+python token_gen.py
 
-#### Headers:
+# Step 5: Run the FastAPI app
+uvicorn app.main:app --reload
+

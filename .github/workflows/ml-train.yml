@@ -1,0 +1,31 @@
+name: CI-CD for ML
+
+on:
+  push:
+    paths:
+      - 'train_model.py'
+      - 'KaggleV2-May-2016.csv'
+      - '.github/workflows/ml-train.yml'
+
+jobs:
+  train-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set Up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Model Training
+        run: |
+          python train_model.py
+
+      - name: Confirm Training Success
+        run: echo "Model training completed successfully!"

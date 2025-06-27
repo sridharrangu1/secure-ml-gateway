@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+python-jose[cryptography]
+scikit-learn
+joblib
+python-dotenv
+mlflow
